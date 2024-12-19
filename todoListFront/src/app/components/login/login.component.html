@@ -1,0 +1,38 @@
+<div class="wrapper fadeInDown" style="
+    margin-top: 10%;">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <h4>User Connexion</h4>
+      </div>
+  
+      <!-- Login Form -->
+      <form [formGroup]="connexionForm" (ngSubmit)="onLoginUser()">
+        <input type="text" id="login" class="fadeIn second" name="login" placeholder="login" formControlName="username">
+        <div>
+          <span class="text-danger" *ngIf="isInvalidInput(connexionForm.controls['username'])" >
+            <ng-container *ngIf="connexionForm.controls['username'].hasError('required')">
+                Le champs Username est requis
+            </ng-container>
+          </span>
+        </div>
+        <input type="text" id="password" class="fadeIn third" name="login" placeholder="password" formControlName="password">
+        <div>
+          <span class="text-danger" *ngIf="isInvalidInput(connexionForm.controls['password'])" >
+            <ng-container *ngIf="connexionForm.controls['password'].hasError('required')">
+                Le champs Password est requis
+            </ng-container>
+          </span>
+        </div>
+        <input type="submit" class="fadeIn fourth" value="Connexion">
+      </form>
+  
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" href="#">Forgot Password?</a>
+      </div>
+  
+    </div>
+  </div>

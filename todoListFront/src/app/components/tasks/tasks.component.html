@@ -1,0 +1,42 @@
+<div class="container">
+
+  <h1>To-Do Application</h1>
+
+  <hr>
+  <form>
+      <div class="form-group">
+          <label for="task">Tache</label>
+          <input type="text" class="form-control" id="task" placeholder="Entrer la tache" [(ngModel)]="tasks.title"  name="task" required>
+      </div>
+      <div class="form-group">
+        <label for="Description">Description</label>
+        <input type="text" class="form-control" id="description" placeholder="Entrer la description" [(ngModel)]="tasks.description"  name="Description" required>
+    </div>
+
+      <button id="submitButton" type="submit" class="btn btn-primary"><a (click)="addTask()">Envoyer</a></button>
+  </form>
+
+  <hr>
+
+  <table class="table">
+      <thead>
+          <tr>
+              <th scope="col">Tache</th>
+              <th scope="col">Description</th>
+              <th scope="col">Completé</th>
+              <th scope="col">Modifier</th>
+              <th scope="col">Supprimer</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let task of tasks">
+              <td>{{task.tile}}</td>
+              <td>{{task.description}}</td>
+              <td><input type="checkbox"></td>
+              <td><button class="btn btn-danger btn-sm"><a (click)="updateTask(task.id)" >Modifier</a></button></td>
+              <td><button class="btn btn-danger btn-sm"><a (click)="deleteTask(task.id)" >Delete</a></button></td>
+          </tr>
+
+      </tbody>
+  </table>
+</div>
